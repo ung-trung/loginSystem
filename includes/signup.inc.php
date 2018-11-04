@@ -28,14 +28,32 @@ if (isset($_POST['signup-submit'])) {
         header("Location:../signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
     }
+
 //check user already in the databse
-//    else {
-//        $sql = $watestdb->query("SELECT userID FROM users WHILE userID=?");
-//    }
     else { 
-        $hashedPwd =password_hash($password,PASSWORD_DEFAULT);
-//        $watestdb = new PDO($serverName, $dBUsername, $DBPassword);
         
+        $selectNewUserEmail = $watestdb->prepare("SELECT userEmail FROM users WHERE userEmail = :email");
+        $selectNewUserEmail->bindValue(":email",$email);
+        $selectNewUserEmail->execute();
+        $resultCheckEmail = $selectNewUserEmail->fetch(PDO::FETCH_ASSOC);
+
+        $selectNewUserName = $watestdb->prepare("SELECT userName FROM users WHERE userName = :name");
+        $selectNewUserName->bindValue(":name", $username);
+        $selectNewUserName->execute();
+        $resultCheckName = $selectNewUserName->fetch(PDO::FETCH_ASSOC);
+//check both and every single email and name
+        if ($resultCheckEmail > 0 && $resultCheckName > 0) {
+            header("Location:../signup.php?error=username&emailtaken");
+            exit();
+        } else if ($resultCheckEmail > 0) {
+            header("Location:../signup.php?error=emailtaken&uid=".$username);
+            exit();
+        } else if($resultCheckName > 0){
+            header("Location:../signup.php?error=uidtaken&mail=" . $email);
+            exit();
+        }
+        else{
+        $hashedPwd =password_hash($password,PASSWORD_DEFAULT);       
         $insert = $watestdb->prepare("insert into users (userName, userEmail, userPwd) values (:name, :email, :pwd)");
         $insert->bindValue(":name", $username); 
         $insert->bindValue(":email", $email);
@@ -44,6 +62,8 @@ if (isset($_POST['signup-submit'])) {
         $insert->execute();
         $insert = NULL;
         $watestdc = NULL;
+        }
+   
     }  
 }
 else {
