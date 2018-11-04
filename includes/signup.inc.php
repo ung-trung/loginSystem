@@ -13,7 +13,7 @@ if (isset($_POST['signup-submit'])) {
         exit();
     }
     else if (!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location:../signup.php?error=invalidmail&uid");
+        header("Location:../signup.php?error=invalidmailuid&uid");
         exit();
     }
     else if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
@@ -21,7 +21,7 @@ if (isset($_POST['signup-submit'])) {
         exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-        header("Location:../signup.php?error=invalidmail&uid=".$email);
+        header("Location:../signup.php?error=invaliduid&mail=".$email);
         exit();
     }
     else if ($password !== $passwordRepeat) {
@@ -43,7 +43,7 @@ if (isset($_POST['signup-submit'])) {
         $resultCheckName = $selectNewUserName->fetch(PDO::FETCH_ASSOC);
 //check both and every single email and name
         if ($resultCheckEmail > 0 && $resultCheckName > 0) {
-            header("Location:../signup.php?error=username&emailtaken");
+            header("Location:../signup.php?error=usernameemailtaken");
             exit();
         } else if ($resultCheckEmail > 0) {
             header("Location:../signup.php?error=emailtaken&uid=".$username);

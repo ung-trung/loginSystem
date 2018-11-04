@@ -7,7 +7,7 @@ require "header.php";
             echo '<p>You are logged in</p>';
         }
         else {
-            echo '<p>You are logged out</p>';
+            echo '<p>You are not logged in</p>';
         }
         ?>
     </main>
