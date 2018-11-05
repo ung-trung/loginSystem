@@ -1,0 +1,104 @@
+<canvas id="gameSpace" width="400" height="400"></canvas>
+<h3 id="gameScore"></h3>
+<script>
+    window.onload=function() {
+        canv=document.getElementById("gameSpace");
+        context=canv.getContext("2d");
+        //Add keyPush event listener:
+        document.addEventListener("keydown", keyPush);
+        // Set the framerate:
+        gameInterval = setInterval(snakeGame, 1000/15);
+    }
+    //x and y velocity:
+    xv = yv = 0;
+    //x and y position:
+    xp = yp = 10;
+    //x and y position of apple:
+    xa = ya = 15;
+    //Grid size and tile count:
+    gs = tc = 20;
+    //Trail and tail:
+    tail = 3;
+    document.getElementById("gameScore").innerHTML = tail;
+    trail = []; //[{"x": 10, "y": 10}, {"x": 9, "y": 10}, {"x": 8, "y": 10}];
+    function snakeGame() {
+        //Add velocity:
+        xp += xv;
+        yp += yv;
+        //Hit borders cases:
+        if (xp < 0)
+        {
+            xp = tc -1;
+        }
+        if (xp > tc -1)
+        {
+            xp = 0;
+        }
+        if (yp < 0)
+        {
+            yp = tc -1;
+        }
+        if (yp > tc -1)
+        {
+            yp = 0;
+        }
+        
+        //Fill all "other" tiles black:
+        context.fillStyle="black";
+        context.fillRect(0, 0, canv.width, canv.height);
+        //Fill apple tiles red:
+        context.fillStyle="red";
+        context.fillRect(xa*gs, ya*gs, gs - 2, gs - 2);
+        //Fill snake tiles yellow:
+        context.fillStyle="lime";
+        for (var i = 0; i < trail.length; i++)
+        {
+            context.fillRect(trail[i].x*gs, trail[i].y*gs, gs, gs);
+            //If x and y position "touch" any trail tile:
+            if (trail[i].x == xp && trail[i].y == yp && (xv != 0 || yv != 0))
+            {
+                gameOver();
+                // tail = 3;
+            }
+        }
+        //If x and y eat apple:
+        if (xa == xp && ya == yp)
+        {
+            tail++;
+            document.getElementById("gameScore").innerHTML = tail;
+            xa = Math.floor(Math.random()*tc);
+            ya = Math.floor(Math.random()*tc);
+        }
+        //Add the last positions to the trail:
+        trail.push({x:xp,y:yp});
+        while(trail.length>tail)
+        {
+            trail.shift();
+        }
+    }
+    function keyPush(event) {
+        switch(event.keyCode) {
+            //Left button:
+            case 37:
+                xv = -1; yv = 0;
+                break;
+            //Up button:
+            case 38:
+                xv = 0; yv = -1;
+                break;
+            //Right button:
+            case 39:
+                xv = 1; yv = 0;
+                break;
+            //Down button:
+            case 40:
+                xv = 0; yv = 1;
+                break;
+        }
+    }
+    function gameOver() {
+        document.removeEventListener("keydown", keyPush);
+        xv = yv = 0;
+        clearInterval(gameInterval);
+    }
+</script>
