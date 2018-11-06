@@ -23,7 +23,7 @@ if (isset($_POST['login-submit'])) {
             if ($row) {
                 $pwdCheck = password_verify($password, $row['userPwd']);
                 if($pwdCheck == false){
-                    header("Location:../index.php?error=wrongpwd?");
+                    header("Location:../index.php?error=wronguidorpwd");
                     exit();
                 } 
                 else if ($pwdCheck == true && $row['isEmailConfirmed'] == 0) {
@@ -38,13 +38,13 @@ if (isset($_POST['login-submit'])) {
                     exit();
                 }
                 else {
-                    header("Location:../index.php?error=wrongpwd?");
+                    header("Location:../index.php?error=wronguidorpwd");
                     exit();
                 }
             }
             
             else {
-                header("Location:../index.php?error=nouser?");
+                header("Location:../index.php?error=wronguidorpwd");
                 exit();
             }
         }

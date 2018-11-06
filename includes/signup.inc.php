@@ -39,16 +39,10 @@ if (isset($_POST['signup-submit'])) {
         $selectNewUserEmail = $watestdb->prepare("SELECT userEmail FROM users WHERE userEmail = :email");
         $selectNewUserEmail->bindValue(":email",$email);
         $selectNewUserEmail->execute();
-        //$countNewUserEmail = $selectNewUserEmail->fetchColumn(); 
 
         $selectNewUserName = $watestdb->prepare("SELECT userName FROM users WHERE userName = :name");
         $selectNewUserName->bindValue(":name", $username);
         $selectNewUserName->execute();
-        //$countNewUserName = $selectNewUserName->fetchColumn(); 
-
-        // echo $countNewUserName;
-        // echo $selectNewUserEmail->rowCount();
-
 
 //check both and every single email and name
     
@@ -57,21 +51,21 @@ if (isset($_POST['signup-submit'])) {
             echo $selectNewUserName->rowCount()."<br>";
             $selectNewUserEmail = null;
             $selectNewUserName = null;
-            // header("Location:../signup.php?error=usernameemailtaken");
-            // exit();
+            header("Location:../signup.php?error=usernameemailtaken");
+            exit();
         } else if ($selectNewUserEmail->rowCount() > 0) {
             echo "email trung: ".$selectNewUserEmail->rowCount();
 
             $selectNewUserEmail = null;
             $selectNewUserName = null;
-            // header("Location:../signup.php?error=emailtaken&uid=$username");
-            // exit();
+            header("Location:../signup.php?error=emailtaken&uid=$username");
+            exit();
         } else if($selectNewUserName->rowCount() > 0){
             echo "ten trung: ".$selectNewUserName->rowCount();
             $selectNewUserEmail = null;
             $selectNewUserName = null;
-            // header("Location:../signup.php?error=uidtaken&mail=$email");
-            // exit();
+            header("Location:../signup.php?error=uidtaken&mail=$email");
+            exit();
         }
         else{
         
@@ -101,7 +95,7 @@ if (isset($_POST['signup-submit'])) {
         $mail->Port = 587;
 
         $mail->From = "agileloginsystem@gmail.com";
-        $mail->FromName = "Admin";
+        $mail->FromName = "loginSystem Admin";
 
         $mail->smtpConnect(
              array(
@@ -120,15 +114,16 @@ if (isset($_POST['signup-submit'])) {
         $mail->Subject = "Please verify your email!";
         $mail->WordWrap = 50;  
         $mail->isHTML(true);
-        $mail->Body = "Please click on the link below <br><br> <a href='http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token'
-            >click me<a/>";   
+        $mail->Body = "Please click on the link below to verify your account <br> <a href='http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token'
+            >http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token<a/>";
+        $mail->isHTML(true);   
         if ($mail->send()){
             $insert->execute();   
-            // header("Location:../signup.php?error=needverifying");
+            header("Location:../signup.php?error=needverifying");
             
         }
         else{
-            //header("Location:../signup.php?error=emailnotsent");
+            header("Location:../signup.php?error=emailnotsent");
         }
         $insert = closeCursor();
         $insert = NULL;
@@ -138,7 +133,7 @@ if (isset($_POST['signup-submit'])) {
     }  
 }
 else {
-    //header("Location:../signup.php?");
+    header("Location:../signup.php?");
 }
 ?>
 /* 
