@@ -95,7 +95,7 @@ if (isset($_POST['signup-submit'])) {
         $mail->Port = 587;
 
         $mail->From = "agileloginsystem@gmail.com";
-        $mail->FromName = "loginSystem Admin";
+        $mail->FromName = "Python Game IO";
 
         $mail->smtpConnect(
              array(

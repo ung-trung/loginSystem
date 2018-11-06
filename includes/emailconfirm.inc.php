@@ -7,9 +7,6 @@ if (!isset($_GET['mail']) || !isset($_GET ['token'])){
 
     $email = $_GET['mail'];
     $token = $_GET['token'];
-    
-    echo "<br>email: ".$email."<br>";
-    echo "token: ".$token."<br>";
 
     $sql = $watestdb->query("SELECT * FROM users WHERE userEmail = '".$email."' AND token = '".$token."' AND isEmailConfirmed = 0");
     if ($sql->rowCount() > 0) {
@@ -19,7 +16,6 @@ if (!isset($_GET['mail']) || !isset($_GET ['token'])){
             $sql1->bindValue(":isEmailConfirmed", $one);
             $sql1->bindValue(":token", "");
             $sql1->execute();
-            echo $sql1->rowCount() .'success123';
         header("Location:../signup.php?signup=verified");
 
         exit();

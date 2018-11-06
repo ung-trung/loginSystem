@@ -21,11 +21,11 @@ require "header.php";
                     } else if ($_GET['error'] == "passwordcheck") {
                         echo '<p class = "signuperror">Check the password again!</p>';
                     } else if ($_GET['error'] == "usernameemailtaken") {
-                        echo '<p class = "signuperror">Username and Email have already been taken!</p>';
+                        echo '<p class = "signuperror">Username and Email have already been taken! Please select a new username and email!</p>';
                     } else if ($_GET['error'] == "emailtaken") {
-                        echo '<p class = "signuperror">Email has already been taken!</p>';
+                        echo '<p class = "signuperror">Email has already been taken! Please select a new email!</p>';
                     } else if ($_GET['error'] == "uidtaken") {
-                        echo '<p class = "signuperror">Username has already been taken!</p>';
+                        echo '<p class = "signuperror">Username has already been taken! Please select a new username</p>';
                     } else if ($_GET['error'] == "needverifying") {
                         echo '<p class = "signuperror">Please verify your email!</p>';
                     } else if ($_GET['error'] == "emailnotsent") {
