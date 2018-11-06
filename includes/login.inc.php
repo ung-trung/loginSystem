@@ -25,11 +25,15 @@ if (isset($_POST['login-submit'])) {
                 if($pwdCheck == false){
                     header("Location:../index.php?error=wrongpwd?");
                     exit();
-                }
-                else if($pwdCheck == true){
+                } 
+                else if ($pwdCheck == true && $row['isEmailConfirmed'] == 0) {
+                    header("Location:../index.php?error=needverifying");
+                    exit();
+                } 
+                else if ($row['isEmailConfirmed'] == 1) {
                     session_start();
-                    $_SESSION['userID'] =$row['userID'];
-                    $_SESSION['userName'] =$row['userName'];
+                    $_SESSION['userID'] = $row['userID'];
+                    $_SESSION['userName'] = $row['userName'];
                     header("Location:../index.php?login=success");
                     exit();
                 }
