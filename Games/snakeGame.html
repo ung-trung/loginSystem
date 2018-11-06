@@ -1,5 +1,6 @@
 <canvas id="gameSpace" width="400" height="400"></canvas>
 <h3 id="gameScore"></h3>
+<p id="testText"></p>
 <script>
     window.onload=function() {
         canv=document.getElementById("gameSpace");
@@ -13,10 +14,16 @@
     xv = yv = 0;
     //x and y position:
     xp = yp = 10;
-    //x and y position of apple:
-    xa = ya = 15;
     //Grid size and tile count:
-    gs = tc = 20;
+    gs = 20;
+    tc = 20;
+    // Random x and y position of first apple:
+    xa = ya = 10;
+    while (xa == xp && ya == yp)
+    {
+        xa = Math.floor(Math.random()*tc);
+        ya = Math.floor(Math.random()*tc);
+    }
     //Trail and tail:
     tail = 3;
     document.getElementById("gameScore").innerHTML = tail;
@@ -51,7 +58,7 @@
         context.fillRect(xa*gs, ya*gs, gs - 2, gs - 2);
         //Fill snake tiles yellow:
         context.fillStyle="lime";
-        for (var i = 0; i < trail.length; i++)
+        for (let i = 0; i < trail.length; i++)
         {
             context.fillRect(trail[i].x*gs, trail[i].y*gs, gs, gs);
             //If x and y position "touch" any trail tile:
@@ -64,10 +71,31 @@
         //If x and y eat apple:
         if (xa == xp && ya == yp)
         {
+            //Show the score:
             tail++;
             document.getElementById("gameScore").innerHTML = tail;
-            xa = Math.floor(Math.random()*tc);
-            ya = Math.floor(Math.random()*tc);
+
+            //Random new apple location:
+            // xa = Math.floor(Math.random()*tc);
+            // ya = Math.floor(Math.random()*tc);
+            
+            let bool = true;
+            while (bool == true)
+            {
+                if (trail.findIndex(obj => obj.x==xa) == trail.findIndex(obj => obj.y==ya) && trail.findIndex(obj => obj.x==xa) != -1) 
+                {
+                    console.log(xa + " " + ya);
+                    xa = Math.floor(Math.random()*tc);
+                    ya = Math.floor(Math.random()*tc);
+                    document.getElementById("testText").innerHTML = "a loo";
+                    console.log(xa + " " + ya);
+                }
+                else
+                    bool = false;
+            }
+            // console.log(xa + " " + ya);
+            console.log(trail);
+
         }
         //Add the last positions to the trail:
         trail.push({x:xp,y:yp});
