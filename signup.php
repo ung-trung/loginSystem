@@ -42,7 +42,7 @@ require "header.php";
                     <input type="text" name="uid" placeholder="Username">
                     <input type="text" name="mail" placeholder="E-mail">              
                     <input type="password" name="pwd" placeholder="Password">
-                    <input type="password" name="pwd-repeat" placeholder="Repeat password">
+                    <input type="password" name="pwd-repeat" placeholder="Confirm your password">
                     <button type="submit" name="signup-submit">Signup</button>
                 </form>
             </section>
