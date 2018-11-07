@@ -24,7 +24,7 @@ require "header.php";
             } else if (isset($_GET['reset'])) {
                 if ($_GET['reset'] == "success") {
                     echo '<p>Your password has been reset<br>Please login with your new password!</p>';
-                } else if ($_GET['reset'] == "emailset") {
+                } else if ($_GET['reset'] == "emailsent") {
                     echo '<p>An email including instruction on how to receive your password back has been sent<br>Please check your email inbox for further information!</p>';
                 }
             }          
