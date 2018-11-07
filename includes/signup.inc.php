@@ -1,8 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
 if (isset($_POST['signup-submit'])) {
     
     require 'dbh.inc.php';
@@ -79,38 +75,8 @@ if (isset($_POST['signup-submit'])) {
         $insert->bindValue(":token", $token);
          
         //send confirmation email
-        include_once('PHPMailer/PHPMailer.php');
-        include_once('PHPMailer/SMTP.php');
-        include_once('PHPMailer/Exception.php');
-
-        $mail = new PHPMailer;
-
-        $mail->SMTPDebug = 3;                               
-        $mail->isSMTP();                                     
-        $mail->Host = "smtp.gmail.com";
-        $mail->SMTPAuth = true;
-        $mail->Username = "agileloginsystem@gmail.com";
-        $mail->Password = "Trung123";                          
-        $mail->SMTPSecure = "tls";                           
-        $mail->Port = 587;
-
-        $mail->From = "agileloginsystem@gmail.com";
-        $mail->FromName = "Python Game IO";
-
-        $mail->smtpConnect(
-             array(
-                "ssl" => array(
-                    "verify_peer" => false,
-                    "verify_peer_name" => false,
-                    "allow_self_signed" => true
-                )
-            )
-        );
-    
-
-        $mail->addAddress($email, $username);
-
-
+        require 'sendemail.inc.php';
+        $mail->addAddress($email);
         $mail->Subject = "Please verify your email!";
         $mail->WordWrap = 50;  
         $mail->isHTML(true);
@@ -118,12 +84,18 @@ if (isset($_POST['signup-submit'])) {
             >http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token<a/>";
         $mail->isHTML(true);   
         if ($mail->send()){
-            $insert->execute();   
+            $insert->execute();
+            $insert = null;
+            $watestdb = null;   
             header("Location:../signup.php?error=needverifying");
+            exit();
             
         }
         else{
+            $insert = null;
+            $watestdb = null;
             header("Location:../signup.php?error=emailnotsent");
+            exit();
         }
         $insert = closeCursor();
         $insert = NULL;
@@ -134,6 +106,7 @@ if (isset($_POST['signup-submit'])) {
 }
 else {
     header("Location:../signup.php?");
+    exit();
 }
 ?>
 /* 

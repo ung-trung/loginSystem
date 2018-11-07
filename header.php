@@ -42,7 +42,9 @@ and open the template in the editor.
                     <input type="password" name="pwd" placeholder="Password...">
                     <button type="submit" name="login-submit">Login</button>
                 </form>
-                <a href="signup.php">Sign up</a>';
+                <a href="signup.php">Sign up</a>
+                <a href="forgotPwd.php">Forgot your password?</a>    
+                ';
                     }
                  ?>
                 
