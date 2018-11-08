@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head> 
 <canvas id="gameSpace" width="400" height="400"></canvas>
 <h3 id="gameScore"></h3>
 <p id="testText"></p>
@@ -27,7 +32,12 @@
     //Trail and tail:
     tail = 3;
     document.getElementById("gameScore").innerHTML = tail;
-    trail = []; //[{"x": 10, "y": 10}, {"x": 9, "y": 10}, {"x": 8, "y": 10}];
+    function Snake(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    trail = [];
+
     function snakeGame() {
         //Add velocity:
         xp += xv;
@@ -60,11 +70,14 @@
         context.fillStyle="lime";
         for (let i = 0; i < trail.length; i++)
         {
+            let a = 0;
             context.fillRect(trail[i].x*gs, trail[i].y*gs, gs, gs);
             //If x and y position "touch" any trail tile:
             if (trail[i].x == xp && trail[i].y == yp && (xv != 0 || yv != 0))
             {
-                gameOver();
+                a++;
+                console.log(a);
+                // gameOver();
                 // tail = 3;
             }
         }
@@ -76,29 +89,36 @@
             document.getElementById("gameScore").innerHTML = tail;
 
             //Random new apple location:
-            // xa = Math.floor(Math.random()*tc);
-            // ya = Math.floor(Math.random()*tc);
-            
-            let bool = true;
-            while (bool == true)
+            xa = Math.floor(Math.random()*tc);
+            ya = Math.floor(Math.random()*tc);
+            let condition = true;
+
+            while (condition) 
             {
-                if (trail.findIndex(obj => obj.x==xa) == trail.findIndex(obj => obj.y==ya) && trail.findIndex(obj => obj.x==xa) != -1) 
+                let condition2 = true;
+                for (x of trail)
                 {
-                    console.log(xa + " " + ya);
-                    xa = Math.floor(Math.random()*tc);
-                    ya = Math.floor(Math.random()*tc);
-                    document.getElementById("testText").innerHTML = "a loo";
-                    console.log(xa + " " + ya);
+                    if (x.x == xa && x.y == ya)
+                    {
+                        console.log("apple: " + xa + " " + ya);
+                        console.log("fail");
+                        condition2 = false;
+                    }
+                }
+                if (condition2)
+                {
+                    condition = false;
                 }
                 else
-                    bool = false;
+                {
+                    xa = Math.floor(Math.random()*tc);
+                    ya = Math.floor(Math.random()*tc);
+                }
             }
-            // console.log(xa + " " + ya);
             console.log(trail);
-
         }
         //Add the last positions to the trail:
-        trail.push({x:xp,y:yp});
+        trail.push(new Snake(xp, yp));
         while(trail.length>tail)
         {
             trail.shift();
@@ -130,3 +150,5 @@
         clearInterval(gameInterval);
     }
 </script>
+    
+</html>
