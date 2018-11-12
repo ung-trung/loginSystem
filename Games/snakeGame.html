@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <link rel="stylesheet" href="Css.css">
 </head> 
 <canvas id="gameSpace" width="400" height="400"></canvas>
 <h3 id="gameScore"></h3>
@@ -75,10 +75,8 @@
             //If x and y position "touch" any trail tile:
             if (trail[i].x == xp && trail[i].y == yp && (xv != 0 || yv != 0))
             {
-                a++;
-                console.log(a);
-                // gameOver();
-                // tail = 3;
+                gameOver();
+
             }
         }
         //If x and y eat apple:

@@ -27,20 +27,17 @@ html, body {
     opacity: 0.9;
 }
 .playButton {
-    margin-top: 1%;
-    margin-left: 43.5%;
-    width: 13%;
-    height: 70%;
+    width: 100%;
+    height: 130%;
 
     background-color: #ffdc75;
 
     border: solid black 5px;
     border-radius: 10px;
 
-    font-size: 200%;
+    font-size: 350%;
     font-weight: bold;
     font-family: "Courier New";
-    padding-top: 0px;
 }
 .playButton:hover {
     background-color: #edc553;
@@ -64,3 +61,41 @@ html, body {
 #gameSpace {
     
 }
+.navBarStructure {
+    margin-top: 4%;
+    height: 8%;
+    /* opacity: 0.5; */
+}
+.mainNavBar {
+    background-color: white;
+    border-top: solid black 5px;
+    border-bottom: solid black 5px;
+}
+.mainnavBar.play {
+    padding:0;
+}
+.mainNavBar.highscore {
+    border-left: solid black 5px;
+    padding-left: 10px;
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 180%;
+}
+.mainNavBar.highscore a {
+    text-decoration: none;
+    color: black;
+}
+/* .mainNavBar.highscore img {
+    height: 45px;
+    width: 45px;
+} */
+.mainNavBar.logout {
+    border-right: solid black 5px;
+    padding-right: 5px;
+}
+.mainNavBar.logout img {
+    height: 40px;
+    width: 40px;
+}
+
+
