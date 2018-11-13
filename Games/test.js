@@ -1,5 +1,5 @@
 window.onload=function() {
-    canv=document.getElementById("snakeGame");
+    canv=document.getElementById("gameSpace");
     context=canv.getContext("2d");
     //Add keyPush event listener:
     document.addEventListener("keydown", keyPush);
@@ -67,6 +67,7 @@ function snakeGame() {
         if (trail[i].x == xp && trail[i].y == yp && (xv != 0 || yv != 0))
         {
             gameOver();
+
         }
     }
     //If x and y eat apple:
@@ -115,19 +116,19 @@ function snakeGame() {
 function keyPush(event) {
     switch(event.keyCode) {
         //Left button:
-        case 37, 65:
+        case 37:
             xv = -1; yv = 0;
             break;
         //Up button:
-        case 38, 87:
+        case 38:
             xv = 0; yv = -1;
             break;
         //Right button:
-        case 39, 68:
+        case 39:
             xv = 1; yv = 0;
             break;
         //Down button:
-        case 40, 83:
+        case 40:
             xv = 0; yv = 1;
             break;
     }

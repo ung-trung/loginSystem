@@ -10,22 +10,6 @@ html, body {
     background: url('mainBackground.png') no-repeat center center fixed; 
     background-size: cover; 
 }
-.navBar {
-    margin-top: 3%;
-    margin-left:20%;
-    height: 8%;
-    width: 60%;
-
-    background-color: white;
-    
-    outline: solid black 5px;
-    border-bottom: solid #c1c1c1 15px;
-
-    opacity: 0.5;
-}
-.navBar:hover {
-    opacity: 0.9;
-}
 .playButton {
     width: 100%;
     height: 130%;
@@ -48,18 +32,15 @@ html, body {
     background-color: #e2b73d;
 }
 .gameSpace {
-    margin-left:20%;
-    margin-top: 5%;
-    width: 60%;
-    height: 60%;
-    background-color: Black;
-    border: solid black 5px;
+    /* margin-left:25%;
+    margin-top: 3%;
+    width: 50%;
+    height: 73%; */
 
-    border-radius: 5%;
-    opacity: 0.5;
-}
-#gameSpace {
-    
+    background: rgb(171, 222, 113);
+    border: solid #98c663 52.5px;
+    border-top: solid #98c663 92.5px;
+    height: 845px;
 }
 .navBarStructure {
     margin-top: 4%;
@@ -72,7 +53,7 @@ html, body {
     border-bottom: solid black 5px;
 }
 .mainnavBar.play {
-    padding:0;
+    padding: 0;
 }
 .mainNavBar.highscore {
     border-left: solid black 5px;
@@ -91,11 +72,34 @@ html, body {
 } */
 .mainNavBar.logout {
     border-right: solid black 5px;
-    padding-right: 5px;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 180%;
 }
-.mainNavBar.logout img {
+.mainNavBar .profile a{
+    text-decoration: none;
+    color: black;
+}
+.mainNavBar .profile .devider {
+    width: 2px; 
+    height: 80%; 
+    background-color: #7f7f7f; 
+    right: 0; 
+    position: absolute; 
+}
+.mainNavBar .profile:hover {
+    background-color: #e2e2e2;
+}
+.mainNavBar .logoutButton img {
     height: 40px;
     width: 40px;
 }
+.mainNavBar .logoutButton:hover {
+    background-color: #e2e2e2;
+}
+
 
 
