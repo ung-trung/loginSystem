@@ -1,10 +1,13 @@
+$(".playButton").click(function() {
+    $(".popupWindow").toggle();
+});
 window.onload=function() {
     canv=document.getElementById("snakeGame");
     context=canv.getContext("2d");
     //Add keyPush event listener:
     document.addEventListener("keydown", keyPush);
     // Set the framerate:
-    gameInterval = setInterval(snakeGame, 1000/15);
+    gameInterval = setInterval(snakeGame, 1000/10);
 }
 //x and y velocity:
 xv = yv = 0;
@@ -22,7 +25,8 @@ while (xa == xp && ya == yp)
 }
 //Trail and tail:
 tail = 3;
-document.getElementById("gameScore").innerHTML = tail;
+// document.getElementById("gameScore").innerHTML = tail - 3;
+$(".gameScore").text(tail -3);
 function Snake(x, y) {
     this.x = x;
     this.y = y;
@@ -50,17 +54,76 @@ function snakeGame() {
     {
         yp = 0;
     }
+    //Speed up:
+    if (trail.length >= 30)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/15);
+    }
+    if (trail.length >= 50)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/20);
+    }
+    if (trail.length >= 75)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/25);
+    }
+    if (trail.length >= 100)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/30);
+    }
+    if (trail.length >= 200)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/35);
+    }
+    if (trail.length >= 350)
+    {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(snakeGame, 1000/40);
+    }
+    
     
     //Fill all "other" tiles black:
-    context.fillStyle="black";
-    context.fillRect(0, 0, canv.width, canv.height);
-    //Fill apple tiles red:
-    context.fillStyle="red";
-    context.fillRect(xa*gs, ya*gs, gs - 2, gs - 2);
-    //Fill snake tiles yellow:
-    context.fillStyle="lime";
-    for (let i = 0; i < trail.length; i++)
+    // context.fillStyle="black";
+    // context.fillRect(0, 0, canv.width, canv.height);
+
+    //Testing game background color:
+    for (let i = 0; i < 20; i++)
     {
+        for (let k = 0; k < 20; k++)
+        {
+            if (i % 2 != 0 && k % 2 == 0)
+            {
+                context.fillStyle="#baf477";
+            }
+            else if (i % 2 == 0 && k % 2 == 0)
+            {
+                context.fillStyle="#96ce58";
+            }
+            else if (i % 2 != 0 && k % 2 != 0)
+            {
+                context.fillStyle="#96ce58";
+            }
+            else
+            {
+                context.fillStyle="#baf477";
+            }
+            context.fillRect(0 + i*gs, 0 + k*gs, gs, gs);
+        }
+    }
+    
+    //Fill apple tiles red:
+    context.fillStyle="#b70b0b";
+    context.fillRect(xa*gs, ya*gs, gs, gs);
+    //Fill snake tiles yellow:
+    
+    for (let i = trail.length - 1; i >= 0; i--)
+    {
+        context.fillStyle="#9e7400";    
         let a = 0;
         context.fillRect(trail[i].x*gs, trail[i].y*gs, gs, gs);
         //If x and y position "touch" any trail tile:
@@ -74,8 +137,8 @@ function snakeGame() {
     {
         //Show the score:
         tail++;
-        document.getElementById("gameScore").innerHTML = tail;
-
+        // document.getElementById("gameScore").innerHTML = tail - 3;
+        $(".gameScore").text(tail -3);
         //Random new apple location:
         xa = Math.floor(Math.random()*tc);
         ya = Math.floor(Math.random()*tc);
@@ -111,24 +174,37 @@ function snakeGame() {
     {
         trail.shift();
     }
+
 }
 function keyPush(event) {
     switch(event.keyCode) {
         //Left button:
         case 37, 65:
-            xv = -1; yv = 0;
+            if (xv != 1)
+            {
+                xv = -1; yv = 0;
+            }
             break;
         //Up button:
         case 38, 87:
-            xv = 0; yv = -1;
+            if (yv != 1)
+            {
+                xv = 0; yv = -1;
+            }
             break;
         //Right button:
         case 39, 68:
-            xv = 1; yv = 0;
+            if (xv != -1)
+            {
+                xv = 1; yv = 0;
+            }
             break;
         //Down button:
         case 40, 83:
-            xv = 0; yv = 1;
+            if (yv != -1)
+            {
+                xv = 0; yv = 1;
+            }
             break;
     }
 }
