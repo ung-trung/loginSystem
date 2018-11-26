@@ -1,0 +1,63 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; 
+    overflow-y: auto;
+    cursor: url("cursor.png"), pointer;
+}
+.backgroundImg {
+    background: url('mainBackground.png') no-repeat center center fixed; 
+    background-size: cover; 
+}
+.navBar {
+    margin-top: 3%;
+    margin-left:20%;
+    height: 8%;
+    width: 60%;
+
+    background-color: white;
+    
+    outline: solid black 5px;
+    border-bottom: solid #c1c1c1 15px;
+
+    opacity: 0.5;
+}
+.navBar:hover {
+    opacity: 0.9;
+}
+.playButton {
+    margin-top: 1%;
+    margin-left: 43.5%;
+    width: 13%;
+    height: 70%;
+
+    background-color: #ffdc75;
+
+    border: solid black 5px;
+    border-radius: 10px;
+
+    font-size: 200%;
+    font-weight: bold;
+    font-family: "Courier New";
+    padding-top: 0px;
+}
+.playButton:hover {
+    background-color: #edc553;
+    cursor: url("tap.png"), pointer;
+    
+}
+.playButton:active {
+    background-color: #e2b73d;
+}
+.gameSpace {
+    margin-left:20%;
+    margin-top: 5%;
+    width: 60%;
+    height: 60%;
+    background-color: Black;
+    border: solid black 5px;
+
+    border-radius: 5%;
+    opacity: 0.5;
+}
