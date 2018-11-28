@@ -1,67 +1,72 @@
-body {
-	top: 0px;
-	left: 0px;
-}
-.bb{
-		background-color: rgb(154,267,208);
-}
-.h1-fontsize{
-	font-size: 20px;
-}
-.table1{
-	margin: 50px, 50px, 50px,50px;
-}
-.game-menu{
-	font-size: 15px;
-}
-.button1 {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #07c3ec;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+.navbar.navbar-inverse.login-navbar {
+  margin: 0px;
+  border-radius: 0px;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
 }
 
-.button1:hover {background-color: #1880bc}
+.login-container-fluid {
+  height: 100vh;
+  background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/05/Free-HD-Wallpaper-High-Quality-620x349.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
 
-.button2:hover {background-color: #840a64}
+.form-div {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  background-color: #ffffff73;
+  padding: 10px 0px;
+  border-radius: 20px;
+}
 
-.button1:active {
-  background-color: #1880bc;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.form {
+  height: 100%;
 }
-.button2:active {
-  background-color: #840a64;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px); 
+
+.form-heading {
+  margin: 30px 0px;
 }
-.box{
-	padding-left: 20px;
-	padding-right: 20px;
-	width: 500px;
+
+.login-form div {
+  margin-bottom: 20px;
 }
-.box2{
-	margin: 20px;
+
+.login-form input.form-control {
+  max-width: 250px;
+  margin: auto;
 }
-.button2{
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #e764d5;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+
+.login-form button.submit-button {
+  margin-bottom: 20px
 }
-input {
-	width: 250px;
-	margin: 50px;
+
+@media (max-width: 768px) {
+  .navbar-header {
+    float: left;
+  }
+
+  .form-div {
+    width: 80%;
+  }
+
+  .login-form {
+    padding: 0px 20px;
+  }
+
+  .login-form input.form-control {
+    max-width: unset;
+  }
+
+  .dropdown-toggle {
+    margin-left: 140px;
+    position: relative;
+    bottom: 2px;
+  }
 }

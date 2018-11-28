@@ -10,14 +10,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="This is an example of a meta description. This will often show up in search results">
-        <meta name=vietport content="width=device-width, initial-scale=1">
-        <title></title>
-        <link rel="stylesheet" href="style.css">
+        <title>Game Center</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <header>
+        <!-- <header>
             <nav>
                 <a href="#">
                     
@@ -50,4 +52,9 @@ and open the template in the editor.
                 
                 
             </div>
-        </header>
+        </header> -->
+<?php
+    function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+?>
