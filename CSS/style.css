@@ -1,0 +1,72 @@
+.navbar.navbar-inverse.login-navbar {
+  margin: 0px;
+  border-radius: 0px;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.login-container-fluid {
+  height: 100vh;
+  background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/05/Free-HD-Wallpaper-High-Quality-620x349.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.form-div {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  background-color: #ffffff73;
+  padding: 10px 0px;
+  border-radius: 20px;
+}
+
+.form {
+  height: 100%;
+}
+
+.form-heading {
+  margin: 30px 0px;
+}
+
+.login-form div {
+  margin-bottom: 20px;
+}
+
+.login-form input.form-control {
+  max-width: 250px;
+  margin: auto;
+}
+
+.login-form button.submit-button {
+  margin-bottom: 20px
+}
+
+@media (max-width: 768px) {
+  .navbar-header {
+    float: left;
+  }
+
+  .form-div {
+    width: 80%;
+  }
+
+  .login-form {
+    padding: 0px 20px;
+  }
+
+  .login-form input.form-control {
+    max-width: unset;
+  }
+
+  .dropdown-toggle {
+    margin-left: 140px;
+    position: relative;
+    bottom: 2px;
+  }
+}

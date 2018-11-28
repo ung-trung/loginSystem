@@ -7,6 +7,9 @@ require "header.php";
             if (isset($_GET['login'])) {
                 if ($_GET['login'] == "success") {
                     echo '<p>You have been logged in!</p>';
+
+                    echo '<object width = "100%" height = "100%" data="snakeGame.html"> 
+</object>';
                 }
             }
             echo '<form action="includes/logout.inc.php" method="POST">                
