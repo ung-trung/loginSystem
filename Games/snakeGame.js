@@ -151,8 +151,8 @@ function snakeGame() {
             {
                 if (x.x == xa && x.y == ya)
                 {
-                    console.log("apple: " + xa + " " + ya);
-                    console.log("fail");
+                    // console.log("apple: " + xa + " " + ya);
+                    // console.log("fail");
                     condition2 = false;
                 }
             }
@@ -166,7 +166,7 @@ function snakeGame() {
                 ya = Math.floor(Math.random()*tc);
             }
         }
-        console.log(trail);
+        // console.log(trail);
     }
     //Add the last positions to the trail:
     trail.push(new Snake(xp, yp));
@@ -216,13 +216,9 @@ function gameOver() {
 
     $(".popupWindow").show(1000);
 
-    // $.ajax({
-    //     dataType: "json",
-    //     url: "getLeaderboardService.php",
-    //     data: "",
-    //     success
-    // })'
-    $.getJSON("getLeaderboardService.php", function(result) {
-        console.log(result);
+    $.ajax({
+        url: "getLeaderboardService.php",
+    }).always(function(data) {
+        console.log(data);
     });
 }
