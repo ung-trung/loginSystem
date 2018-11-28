@@ -119,8 +119,8 @@ function snakeGame() {
     //Fill apple tiles red:
     context.fillStyle="#b70b0b";
     context.fillRect(xa*gs, ya*gs, gs, gs);
+
     //Fill snake tiles yellow:
-    
     for (let i = trail.length - 1; i >= 0; i--)
     {
         context.fillStyle="#9e7400";    
@@ -132,7 +132,7 @@ function snakeGame() {
             gameOver();
         }
     }
-    //If x and y eat apple:
+    //When snake eat apple:
     if (xa == xp && ya == yp)
     {
         //Show the score:
@@ -176,6 +176,7 @@ function snakeGame() {
     }
 
 }
+//KeyPush event
 function keyPush(event) {
     switch(event.keyCode) {
         //Left button:
@@ -212,4 +213,16 @@ function gameOver() {
     document.removeEventListener("keydown", keyPush);
     xv = yv = 0;
     clearInterval(gameInterval);
+
+    $(".popupWindow").show(1000);
+
+    // $.ajax({
+    //     dataType: "json",
+    //     url: "getLeaderboardService.php",
+    //     data: "",
+    //     success
+    // })'
+    $.getJSON("getLeaderboardService.php", function(result) {
+        console.log(result);
+    });
 }

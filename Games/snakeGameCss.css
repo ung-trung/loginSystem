@@ -11,11 +11,11 @@ html, body {
     height: 100%;
     /* overflow-x: hidden; 
     overflow-y: auto; */
-    cursor: url("cursor.png"), pointer;
+    cursor: url("Images/cursor.png"), pointer;
     -ms-overflow-style:none;
 }
 .backgroundImg {
-    background: url('mainBackground1.png') no-repeat center center fixed; 
+    background: url('Images/mainBackground.png') no-repeat center center fixed; 
     background-size: cover; 
 }
 .secondBackground {
@@ -40,7 +40,7 @@ html, body {
 }
 .playButton:hover {
     background-color: #edc553;
-    cursor: url("tap.png"), pointer;
+    cursor: url("Images/tap.png"), pointer;
     
 }
 .playButton:active {
@@ -53,7 +53,9 @@ html, body {
 .gameSpace {
     margin-top: 3%;
 
-    background: #4e7c18;
+    background: rgba(78, 124, 24, 70%);
+    /* background: rgba(255, 255, 255, 50%); */
+    
     /* border: solid #98c663 50px;
     border-top: solid #98c663 80px; */
 
@@ -82,6 +84,7 @@ html, body {
     /* font-family: "Courier New"; */
     font-size: 70px;
     margin:0;
+    margin-top: 1%;
 }
 #snakeGame {
     margin-top: 10px;
@@ -167,6 +170,8 @@ footer {
     border-radius: 10px;
     margin-top: -40%;
     margin-left: 25%;
+
+    display: none;
 }
 .popupWindow .result {
     margin-top : 7%;
@@ -180,6 +185,7 @@ footer {
     height: 15%;
 
     margin-left: 20%;
+    margin-top: -2%;
     background-color: grey;
     /* border: solid black 5px; */
     border-radius: 10px;
@@ -199,6 +205,30 @@ footer {
     height: 80%;
     float: right;
 }
+.popupWindow .exhighScore p {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.popupWindow .exhighScore img {
+    width: 25%;
+    height: auto;
+    margin-left: 37.5%;
+}
+.leaders h3 {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 4px;
+
+    text-align: center;
+}
+.leaders h4 {
+    font-size: 20px;
+    color: red;
+
+    text-align: center;
+}
+
 
 
 
