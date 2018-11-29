@@ -6,7 +6,9 @@ require "header.php";
         if (isset($_SESSION['userName'])){
             if (isset($_GET['login'])) {
                 if ($_GET['login'] == "success") {
+
                     readfile("snakeGame.html");
+
                 }
             }
             echo '<form action="includes/logout.inc.php" method="POST">                

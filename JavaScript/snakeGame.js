@@ -213,6 +213,7 @@ function gameOver() {
 
     $(".popupWindow").show(1000);
 
+
     //Update database:
     $.post("includes/setHighScoreService.php", {score: tail - 3});
 
