@@ -1,0 +1,204 @@
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow-x: hidden; 
+    overflow-y: auto; */
+    cursor: url("cursor.png"), pointer;
+    -ms-overflow-style:none;
+}
+.backgroundImg {
+    background: url('mainBackground1.png') no-repeat center center fixed; 
+    background-size: cover; 
+}
+.secondBackground {
+    background-color: whitesmoke;  
+    width: 50%;
+    margin-left: 25%;
+    height: 100%;
+    top: 0;
+}
+.playButton {
+    width: 100%;
+    height: 130%;
+
+    background-color: #ffdc75;
+
+    border: solid black 5px;
+    border-radius: 10px;
+
+    font-size: 350%;
+    font-weight: bold;
+    font-family: "Courier New";
+}
+.playButton:hover {
+    background-color: #edc553;
+    cursor: url("tap.png"), pointer;
+    
+}
+.playButton:active {
+    background-color: #e2b73d;
+}
+.main {
+    width: 100%;
+    z-index: -1;
+}
+.gameSpace {
+    margin-top: 3%;
+
+    background: #4e7c18;
+    /* border: solid #98c663 50px;
+    border-top: solid #98c663 80px; */
+
+    width: 800px;
+    height: 840px;
+}
+.gameScore {
+    font-size: 50px;
+    font-weight: bold;
+
+    margin:0px; 
+    margin-left: 50px;
+    margin-top: 20px;
+    font-family: "Courier New";
+}
+#finalScore {
+    margin: 0px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 200px;
+    font-weight: bold;
+    color: #0074D9;
+}
+.result h3 {
+    text-align: center;
+    /* font-family: "Courier New"; */
+    font-size: 70px;
+    margin:0;
+}
+#snakeGame {
+    margin-top: 10px;
+    margin-left: 50px;
+
+    position: relative;
+}
+.navBarStructure {
+    margin-top: 4%;
+    height: 8%;
+    /* opacity: 0.5; */
+}
+.mainNavBar {
+    background-color: white;
+    border-top: solid black 5px;
+    border-bottom: solid black 5px;
+}
+.mainnavBar.play {
+    padding: 0;
+}
+.mainNavBar.highscore {
+    border-left: solid black 5px;
+    padding-left: 10px;
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 180%;
+}
+.mainNavBar.highscore a {
+    text-decoration: none;
+    color: black;
+}
+/* .mainNavBar.highscore img {
+    height: 45px;
+    width: 45px;
+} */
+.mainNavBar.logout {
+    border-right: solid black 5px;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 180%;
+}
+.mainNavBar .profile a{
+    text-decoration: none;
+    color: black;
+}
+.mainNavBar .profile .devider {
+    width: 2px; 
+    height: 80%; 
+    background-color: #7f7f7f; 
+    right: 0; 
+    position: absolute; 
+}
+.mainNavBar .profile:hover {
+    background-color: #e2e2e2;
+}
+.mainNavBar .logoutButton img {
+    height: 40px;
+    width: 40px;
+}
+.mainNavBar .logoutButton:hover {
+    background-color: #e2e2e2;
+}
+
+footer {
+    margin-top: 3%;
+    margin-left: 24.61%;
+    height: 70px;
+    background-color: #7c7c7c;
+    width: 50.78%;
+}
+.popupWindow {
+    width:50%;
+    height: 70%;
+
+    z-index: 1;
+    position: absolute;;
+
+    background-color: white;
+    border: solid black 10px;
+    border-radius: 10px;
+    margin-top: -40%;
+    margin-left: 25%;
+}
+.popupWindow .result {
+    margin-top : 7%;
+    float: left;
+    width: 65%;
+    height: 80%;
+    border-right: solid #808080 4px;
+}
+.popupWindow .replayButton {
+    width: 60%;
+    height: 15%;
+
+    margin-left: 20%;
+    background-color: grey;
+    /* border: solid black 5px; */
+    border-radius: 10px;
+
+    font-size: 30px;
+    font-weight: bold;
+    color: #232323;
+}  
+.result p {
+    margin-top: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+.popupWindow .exhighScore {
+    margin-top: 7%;
+    width: 35%;
+    height: 80%;
+    float: right;
+}
+
+
+

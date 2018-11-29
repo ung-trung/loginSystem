@@ -32,7 +32,7 @@ if (isset($_POST['login-submit'])) {
                 } 
                 else if ($row['isEmailConfirmed'] == 1) {
                     session_start();
-                    $_SESSION['userID'] = $row['userID'];
+                    $_SESSION['userid'] = $row['userid'];
                     $_SESSION['userName'] = $row['userName'];
                     header("Location:../index.php?login=success");
                     exit();
