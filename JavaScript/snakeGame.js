@@ -1,6 +1,3 @@
-$(".playButton").click(function() {
-    $(".popupWindow").toggle();
-});
 window.onload=function() {
     canv=document.getElementById("snakeGame");
     context=canv.getContext("2d");
@@ -216,9 +213,28 @@ function gameOver() {
 
     $(".popupWindow").show(1000);
 
-    $.ajax({
-        url: "includes/getLeaderboardService.php",
-    }).always(function(data) {
-        console.log(data);
-    });
+    //Update database:
+    $.post("includes/setHighScoreService.php", {score: tail - 3});
+
+    //Fetch leaderboard:
+    $.post("includes/getLeaderboardService.php", function (data, status, jqXHR) 
+    { 
+        jqXHR.done(function(data) { 
+            data = data.substring(4, data.length - 2);
+            data = data.replace(/['"]+/g, '');
+            data = data.split(",");
+            console.log(data);
+
+            $(".leaders").append($("<img src='Images/gold-medal.png'><br>"));
+            $(".leaders").append($("<h3></h3>").text(data[0]));
+            $(".leaders").append($("<h4></h4>").text(data[1]));
+            $(".leaders").append("<img src='Images/second.png'><br>");
+            $(".leaders").append($("<h3></h3>").text(data[2]));
+            $(".leaders").append($("<h4></h4>").text(data[3]));
+            $(".leaders").append("<img src='Images/third.png'><br>");
+            $(".leaders").append($("<h3></h3>").text(data[4]));
+            $(".leaders").append($("<h4></h4>").text(data[5]));
+        })
+
+    })
 }

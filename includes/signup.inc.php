@@ -35,31 +35,69 @@ if (isset($_POST['signup-submit'])) {
         $selectNewUserEmail = $watestdb->prepare("SELECT userEmail FROM users WHERE userEmail = :email");
         $selectNewUserEmail->bindValue(":email",$email);
         $selectNewUserEmail->execute();
-        $resultCheckEmail = $selectNewUserEmail->fetch(PDO::FETCH_ASSOC);
 
         $selectNewUserName = $watestdb->prepare("SELECT userName FROM users WHERE userName = :name");
         $selectNewUserName->bindValue(":name", $username);
         $selectNewUserName->execute();
-        $resultCheckName = $selectNewUserName->fetch(PDO::FETCH_ASSOC);
+
 //check both and every single email and name
-        if ($resultCheckEmail > 0 && $resultCheckName > 0) {
+    
+        if ($selectNewUserEmail->rowCount() > 0 && $selectNewUserName->rowCount() > 0) {
+            echo $selectNewUserEmail->rowCount()."<br>";
+            echo $selectNewUserName->rowCount()."<br>";
+            $selectNewUserEmail = null;
+            $selectNewUserName = null;
             header("Location:../signup.php?error=usernameemailtaken");
             exit();
-        } else if ($resultCheckEmail > 0) {
-            header("Location:../signup.php?error=emailtaken&uid=".$username);
+        } else if ($selectNewUserEmail->rowCount() > 0) {
+            echo "email trung: ".$selectNewUserEmail->rowCount();
+
+            $selectNewUserEmail = null;
+            $selectNewUserName = null;
+            header("Location:../signup.php?error=emailtaken&uid=$username");
             exit();
-        } else if($resultCheckName > 0){
-            header("Location:../signup.php?error=uidtaken&mail=" . $email);
+        } else if($selectNewUserName->rowCount() > 0){
+            echo "ten trung: ".$selectNewUserName->rowCount();
+            $selectNewUserEmail = null;
+            $selectNewUserName = null;
+            header("Location:../signup.php?error=uidtaken&mail=$email");
             exit();
         }
         else{
+        
+        //insert into database, hash password and generate token
+        $token = bin2hex(random_bytes(16));
         $hashedPwd =password_hash($password,PASSWORD_DEFAULT);       
-        $insert = $watestdb->prepare("insert into users (userName, userEmail, userPwd) values (:name, :email, :pwd)");
+        $insert = $watestdb->prepare("insert into users (userName, userEmail, userPwd, token) values (:name, :email, :pwd, :token)");
         $insert->bindValue(":name", $username); 
         $insert->bindValue(":email", $email);
         $insert->bindValue(":pwd", $hashedPwd);
-        header("Location:../signup.php?signup=success");
-        $insert->execute();
+        $insert->bindValue(":token", $token);
+         
+        //send confirmation email
+        require 'sendemail.inc.php';
+        $mail->addAddress($email);
+        $mail->Subject = "Please verify your email!";
+        $mail->WordWrap = 50;  
+        $mail->isHTML(true);
+        $mail->Body = "Please click on the link below to verify your account <br> <a href='http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token'
+            >http://localhost:8080/loginSystem/includes/emailconfirm.inc.php?mail=$email&token=$token<a/>";
+        $mail->isHTML(true);   
+        if ($mail->send()){
+            $insert->execute();
+            $insert = null;
+            $watestdb = null;   
+            header("Location:../signup.php?error=needverifying");
+            exit();
+            
+        }
+        else{
+            $insert = null;
+            $watestdb = null;
+            header("Location:../signup.php?error=emailnotsent");
+            exit();
+        }
+        $insert = closeCursor();
         $insert = NULL;
         $watestdc = NULL;
         }
@@ -68,6 +106,7 @@ if (isset($_POST['signup-submit'])) {
 }
 else {
     header("Location:../signup.php?");
+    exit();
 }
 ?>
 /* 

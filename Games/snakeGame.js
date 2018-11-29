@@ -119,8 +119,8 @@ function snakeGame() {
     //Fill apple tiles red:
     context.fillStyle="#b70b0b";
     context.fillRect(xa*gs, ya*gs, gs, gs);
-
     //Fill snake tiles yellow:
+    
     for (let i = trail.length - 1; i >= 0; i--)
     {
         context.fillStyle="#9e7400";    
@@ -132,7 +132,7 @@ function snakeGame() {
             gameOver();
         }
     }
-    //When snake eat apple:
+    //If x and y eat apple:
     if (xa == xp && ya == yp)
     {
         //Show the score:
@@ -151,8 +151,8 @@ function snakeGame() {
             {
                 if (x.x == xa && x.y == ya)
                 {
-                    // console.log("apple: " + xa + " " + ya);
-                    // console.log("fail");
+                    console.log("apple: " + xa + " " + ya);
+                    console.log("fail");
                     condition2 = false;
                 }
             }
@@ -166,7 +166,7 @@ function snakeGame() {
                 ya = Math.floor(Math.random()*tc);
             }
         }
-        // console.log(trail);
+        console.log(trail);
     }
     //Add the last positions to the trail:
     trail.push(new Snake(xp, yp));
@@ -176,7 +176,6 @@ function snakeGame() {
     }
 
 }
-//KeyPush event
 function keyPush(event) {
     switch(event.keyCode) {
         //Left button:
@@ -213,12 +212,4 @@ function gameOver() {
     document.removeEventListener("keydown", keyPush);
     xv = yv = 0;
     clearInterval(gameInterval);
-
-    $(".popupWindow").show(1000);
-
-    $.ajax({
-        url: "getLeaderboardService.php",
-    }).always(function(data) {
-        console.log(data);
-    });
 }

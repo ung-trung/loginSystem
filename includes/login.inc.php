@@ -23,24 +23,28 @@ if (isset($_POST['login-submit'])) {
             if ($row) {
                 $pwdCheck = password_verify($password, $row['userPwd']);
                 if($pwdCheck == false){
-                    header("Location:../index.php?error=wrongpwd?");
+                    header("Location:../index.php?error=wronguidorpwd");
                     exit();
-                }
-                else if($pwdCheck == true){
+                } 
+                else if ($pwdCheck == true && $row['isEmailConfirmed'] == 0) {
+                    header("Location:../index.php?error=needverifying");
+                    exit();
+                } 
+                else if ($row['isEmailConfirmed'] == 1) {
                     session_start();
-                    $_SESSION['userID'] =$row['userID'];
-                    $_SESSION['userName'] =$row['userName'];
+                    $_SESSION['userid'] = $row['userid'];
+                    $_SESSION['userName'] = $row['userName'];
                     header("Location:../index.php?login=success");
                     exit();
                 }
                 else {
-                    header("Location:../index.php?error=wrongpwd?");
+                    header("Location:../index.php?error=wronguidorpwd");
                     exit();
                 }
             }
             
             else {
-                header("Location:../index.php?error=nouser?");
+                header("Location:../index.php?error=wronguidorpwd");
                 exit();
             }
         }
