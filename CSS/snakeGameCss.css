@@ -101,9 +101,8 @@ html, body {
     background-color: white;
     border-top: solid black 5px;
     border-bottom: solid black 5px;
-}
-.mainnavBar.play {
-    padding: 0;
+    padding: 0px;
+
 }
 .mainNavBar.highscore {
     border-left: solid black 5px;
