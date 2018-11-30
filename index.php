@@ -4,13 +4,7 @@ require "header.php";
     <main>
         <?php
         if (isset($_SESSION['userName'])){
-            if (isset($_GET['login'])) {
-                if ($_GET['login'] == "success") {
-
-                    readfile("snakeGame.html");
-
-                }
-            }
+            readfile("snakeGame.html");
             echo '<form action="includes/logout.inc.php" method="POST">                
                     <button type="submit" name="logout-submit">Logout</button>
                 </form>';

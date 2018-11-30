@@ -20,7 +20,10 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <!-- JS script/jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
+        <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+
         <link rel="stylesheet" type="text/css" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/snakeGameCss.css" type="text/css">
     </head>
