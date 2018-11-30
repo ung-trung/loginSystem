@@ -1,5 +1,5 @@
 <?php
-require "header.php";
+    require "header.php";
 ?>
     <main>
         <?php
@@ -10,7 +10,6 @@ require "header.php";
                 </form>';
         }
         else {
-
             echo '<div class="container-fluid login-container-fluid">
                 <div class="form-div">
                     <h1 class="form-heading text-center">
@@ -29,9 +28,7 @@ require "header.php";
                         <a href="forgotPwd.php">Forgot your password?</a> 
                     </div>
 
-                    <button type="submit" name="login-submit" class="btn btn-default btn-info submit-button">Login</button>                
-                ';
-
+                    <button type="submit" name="login-submit" class="btn btn-default btn-info submit-button">Login</button>';
 
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == "needverifying") {
@@ -58,5 +55,5 @@ require "header.php";
         ?>
     </main>
 <?php
-require "footer.php";
+    require "footer.php";
 ?>

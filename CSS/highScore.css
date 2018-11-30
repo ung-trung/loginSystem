@@ -1,0 +1,124 @@
+.leaderBoard {
+    background-color: rgba(78, 124, 24, 70%);
+    
+    height: 900px;
+    width: 50%;
+
+    margin-left: 25%;
+    margin-top: 4%;
+}
+.board {
+    background-color: white;
+    width: 90%;
+    height: 100%;
+
+    margin: 5%;
+    margin-top: 0%;
+    overflow: auto;
+}
+.board h1 {
+    color: #FF851B;
+    font-size: 7.5vw;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: -0.2vw 0 black, 0 0.2vw black, 0.2vw 0 black, 0 -0.2vw black;
+
+    font-family: "Courier New";
+    margin-top: 3%;
+}
+.board img {
+    width: 17%;
+    height: auto;
+    margin-left: 41.5%;
+    margin-bottom: 5%;
+}
+.grid-container {
+    display: grid;
+    grid-column-gap: 10px;
+    height: 55vh;
+    grid-template-columns: auto auto auto;
+}
+.grid-item {
+    background-color: blue;
+    height: 70%;
+    width: 90%;
+    margin-left: 5%;
+
+    border-radius: 15px;
+    position: relative;
+
+    background: linear-gradient(to bottom, #9BA747 0%, #9BA747 50%,  #52733B 50%, #52733B 100%);
+}
+.item-1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    width: 40%;
+    margin-left: 30%;
+
+    /* background: linear-gradient(to bottom, #F3CD05 0%, #F3CD05 50%, #F49F05 50%, #F49F05 100%); */
+    background: linear-gradient(to bottom, #ffa200 0%, #ffa200 50%,  #F18904 50%, #F18904 100%);
+}
+.item-2 {
+    background: linear-gradient(to bottom, #AFBADC 0%, #AFBADC 50%,  #777CA8 50%, #777CA8 100%);
+}
+.item-3 {
+    background: linear-gradient(to bottom, #A57164 0%, #A57164 50%,  #a05c4b 50%, #a05c4b 100%);
+}
+.name {
+    color: black;
+    font-size: 1.75vw;
+    position: absolute;
+    right: 15px;
+    bottom: 0px;
+
+    font-family: "Concert One", cursive;
+}
+.grid-item .medal {
+    position: absolute;
+    height: 5vw;
+    width: auto;
+    margin: 0;
+    left: 5px;
+    top: 2px;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+}
+.item-2 .medal {
+    height: 3vw;
+    width: auto;
+}
+.item-3 .medal {
+    height: 3vw;
+    width: auto;
+}
+.rank {
+    position: absolute;
+    color: #00743F;
+    font-family: "Concert One", cursive;
+    font-size: 2vw;
+
+    left: 15px;
+    top: -3px;
+
+    /* text-shadow: -0.1vw 0 #2A3457, 0 0.1vw #2A3457, 0.1vw 0 #2A3457, 0 -0.1vw #2A3457; */
+}
+.grid-item .score {
+    position: absolute;
+    color: #A7414A;
+    font-family: "Concert One", cursive;
+    font-size: 1.75vw;
+
+    right: 15px;
+    top: -3px;
+}
+.item-1 .score {
+    color: #8c5a02;
+}
+.item-2 .score {
+    color: #6b7389;
+}
+.item-3 .score {
+    color: #724e45; 
+}

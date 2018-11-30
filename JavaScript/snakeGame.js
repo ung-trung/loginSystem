@@ -22,7 +22,6 @@ while (xa == xp && ya == yp)
 }
 //Trail and tail:
 tail = 3;
-// document.getElementById("gameScore").innerHTML = tail - 3;
 $(".gameScore").text(tail -3);
 function Snake(x, y) {
     this.x = x;
