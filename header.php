@@ -21,8 +21,10 @@ and open the template in the editor.
         <!-- JS script/jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
-        
+
         <link rel="stylesheet" type="text/css" href="CSS/style.css">
         <link rel="stylesheet" type="text/css" href="CSS/snakeGameCss.css">
         <link rel="stylesheet" type="text/css" href="CSS/highScore.css">
