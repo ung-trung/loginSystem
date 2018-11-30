@@ -34,7 +34,7 @@ html, body {
     border: solid black 5px;
     border-radius: 10px;
 
-    font-size: 350%;
+    font-size: 4vw;
     font-weight: bold;
     font-family: "Courier New";
 }
@@ -63,7 +63,7 @@ html, body {
     height: 840px;
 }
 .gameScore {
-    font-size: 50px;
+    font-size: 2.5vw;
     font-weight: bold;
 
     margin:0px; 
@@ -75,16 +75,15 @@ html, body {
     margin: 0px;
     margin-top: 10px;
     text-align: center;
-    font-size: 200px;
+    font-size: 11.5vw;
     font-weight: bold;
     color: #0074D9;
 }
 .result h3 {
     text-align: center;
-    /* font-family: "Courier New"; */
-    font-size: 70px;
-    margin:0;
-    margin-top: 1%;
+    font-size: 4.5vw;
+    margin: 0;
+    margin-top: 0.5%;
 }
 #snakeGame {
     margin-top: 10px;
@@ -94,7 +93,7 @@ html, body {
 }
 .navBarStructure {
     margin-top: 4%;
-    height: 8%;
+    height: 100px;
     /* opacity: 0.5; */
 }
 .mainNavBar {
@@ -107,8 +106,8 @@ html, body {
     border-left: solid black 5px;
     padding-left: 10px;
     font-family: "Courier New";
-    font-weight: bold;
-    font-size: 180%;
+    font-weight: bolder;
+    font-size: 2vw;
 }
 .mainNavBar.highscore a {
     text-decoration: none;
@@ -125,7 +124,7 @@ html, body {
 
     font-family: "Courier New";
     font-weight: bold;
-    font-size: 180%;
+    font-size: 2vw;
 }
 .mainNavBar .profile a{
     text-decoration: none;
@@ -188,13 +187,13 @@ footer {
     /* border: solid black 5px; */
     border-radius: 10px;
 
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bold;
     color: #232323;
 }  
 .result p {
     margin-top: 5%;
-    font-size: 20px;
+    font-size: 1vw;
     text-align: center;
 }
 .popupWindow .exhighScore {
@@ -204,7 +203,8 @@ footer {
     float: right;
 }
 .popupWindow .exhighScore p {
-    font-size: 30px;
+    margin-top: -5%;
+    font-size: 2vw;
     font-weight: bold;
     text-align: center;
 }
@@ -214,14 +214,14 @@ footer {
     margin-left: 37.5%;
 }
 .leaders h3 {
-    font-size: 20px;
+    font-size: 1.3vw;
     color: black;
     margin-bottom: 4px;
 
     text-align: center;
 }
 .leaders h4 {
-    font-size: 20px;
+    font-size: 1.3vw;
     color: red;
 
     text-align: center;
