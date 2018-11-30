@@ -1,22 +1,15 @@
 <?php
-require "header.php";
+    require "header.php";
 ?>
     <main>
         <?php
         if (isset($_SESSION['userName'])){
-            if (isset($_GET['login'])) {
-                if ($_GET['login'] == "success") {
-
-                    readfile("snakeGame.html");
-
-                }
-            }
+            readfile("snakeGame.html");
             echo '<form action="includes/logout.inc.php" method="POST">                
                     <button type="submit" name="logout-submit">Logout</button>
                 </form>';
         }
         else {
-
             echo '<div class="container-fluid login-container-fluid">
                 <div class="form-div">
                     <h1 class="form-heading text-center">
@@ -35,9 +28,7 @@ require "header.php";
                         <a href="forgotPwd.php">Forgot your password?</a> 
                     </div>
 
-                    <button type="submit" name="login-submit" class="btn btn-default btn-info submit-button">Login</button>                
-                ';
-
+                    <button type="submit" name="login-submit" class="btn btn-default btn-info submit-button">Login</button>';
 
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == "needverifying") {
@@ -64,5 +55,5 @@ require "header.php";
         ?>
     </main>
 <?php
-require "footer.php";
+    require "footer.php";
 ?>
