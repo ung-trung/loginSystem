@@ -5,9 +5,6 @@
         <?php
         if (isset($_SESSION['userName'])){
             readfile("snakeGame.html");
-            echo '<form action="includes/logout.inc.php" method="POST">                
-                    <button type="submit" name="logout-submit">Logout</button>
-                </form>';
         }
         else {
             echo '<div class="container-fluid login-container-fluid">

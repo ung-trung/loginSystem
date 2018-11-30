@@ -38,6 +38,10 @@ html, body {
     font-weight: bold;
     font-family: "Courier New";
 }
+.playButton a {
+    text-decoration: none;
+    color: black
+}
 .playButton:hover {
     background-color: #edc553;
     cursor: url("..//Images/tap.png"), pointer;

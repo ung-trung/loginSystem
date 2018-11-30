@@ -12,45 +12,36 @@
 
     $name = $row["userName"];
     $score = $row["score"];
-    $email = $row["userEmail"];
-    $rankImage ="";
-    if ($score<=1000){
-        $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/1-1.png";
-    } 
-    else if ($score<=5000){
-        $rankImage ="https://cdn.leagueofgraphs.com/img/league-icons/160/2-1.png";  
+    $email = $row["userEmail"];  
+
+    if($name != null && $score != null && $email != null) {
+  
     }
-    else if ($score<=10000){
-        $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/3-1.png";
-    } else {
-        $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/5-1.png";
+    else {
+        $name = "Please play a game to update your profile";
+        $score = "";
+        $email = "";
+    }
+    
+    
+    $rankImage ="";
+    if($score != null){
+        if ($score<=10){
+            $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/1-1.png";
+        } 
+        else if ($score<=50){
+            $rankImage ="https://cdn.leagueofgraphs.com/img/league-icons/160/2-1.png";  
+        }
+        else if ($score<=100){
+            $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/3-1.png";
+        } else {
+            $rankImage = "https://cdn.leagueofgraphs.com/img/league-icons/160/5-1.png";
+        }
     }
 
 
      if (isset($_SESSION['userName'])){
             echo '<body class="backgroundImg">
-    <div class="row navBarStructure">
-        <div class="col-xl-2"></div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2 mainNavBar highscore d-flex justify-content-center align-items-center">
-            <img style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: 5px;" src="Images/crown.png">
-            <a href="">HIGHSCORE</a>       
-        </div>
-        <div class="col-xl-2 mainNavBar play d-flex justify-content-center align-items-center">
-            <button class="playButton" type="button">PLAY</button>
-        </div>
-        <div class="col-xl-2 mainNavBar row logout">
-            <div class="col-xl-9 profile d-flex justify-content-center align-items-center">
-                <a href="">PROFILE</a>
-                <div class="devider"></div>
-            </div>
-            <div class="col-xl-3 logoutButton d-flex justify-content-end align-items-center">
-                <img src="Images/logout.png">
-            </div>
-        </div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2"></div>
-    </div>
 
     <div class="main d-flex justify-content-center align-items-center">
             <div class="form-div" style="margin:300px">

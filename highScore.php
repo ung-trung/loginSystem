@@ -2,28 +2,7 @@
     require "header.php";
 ?> 
     <!-- Navigation Bar -->
-    <div class="row navBarStructure">
-        <div class="col-xl-2"></div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2 mainNavBar highscore d-flex justify-content-center align-items-center">
-            <img style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: 5px;" src="Images/crown.png">
-            <a href="highScore.php">HIGHSCORE</a>       
-        </div>
-        <div class="col-xl-2 mainNavBar play d-flex justify-content-center align-items-center">
-            <button class="playButton" type="button">PLAY</button>
-        </div>
-        <div class="col-xl-2 mainNavBar row logout">
-            <div class="col-xl-9 profile d-flex justify-content-center align-items-center">
-                <a href="">PROFILE</a>
-                <div class="devider"></div>
-            </div>
-            <div class="col-xl-3 logoutButton d-flex justify-content-end align-items-center">
-                <img src="Images/logout.png">
-            </div>
-        </div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2"></div>
-    </div> 
+    
 
     <!-- Leaderboard Table -->
     <div class="leaderBoard">
