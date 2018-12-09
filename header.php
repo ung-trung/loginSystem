@@ -32,27 +32,28 @@ and open the template in the editor.
     <body class="backgroundImg">
         <?php
             if (isset($_SESSION['userName'])){
-                echo '<div class="row navBarStructure">
-        <div class="col-xl-2"></div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2 mainNavBar highscore d-flex justify-content-center align-items-center">
-            <img style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: 5px;" src="Images/crown.png">
-            <a href="highScore.php" name="highscore">HIGHSCORE</a>       
-        </div>
-        <div class="col-xl-2 mainNavBar play d-flex justify-content-center align-items-center">
-            <button class="playButton" type="button"><a href="index.php">PLAY</a></button>     
-        </div>
-        <div class="col-xl-2 mainNavBar row logout">
-            <div class="col-xl-9 profile d-flex justify-content-center align-items-center">
-                <a href="profilePage.php">PROFILE</a>
-                <div class="devider"></div>
-            </div>
-            <div class="col-xl-3 logoutButton d-flex justify-content-end align-items-center">
-                <a href="includes/logout.inc.php"><img src="Images/logout.png"></a>
-            </div>
-        </div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-2"></div>
+                echo   '<img class="snakeLogo" src="Images/logo_snake4.png">
+                        <div class="row navBarStructure">
+                        <div class="col-xl-2"></div>
+                        <div class="col-xl-1"></div>
+                        <div class="col-xl-2 mainNavBar highscore d-flex justify-content-center align-items-center">
+                            <img style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: 5px;" src="Images/crown.png">
+                            <a href="highScore.php" name="highscore">HIGHSCORE</a>       
+                        </div>
+                        <div class="col-xl-2 mainNavBar play d-flex justify-content-center align-items-center">
+                            <button class="playButton" type="button"><a href="index.php">PLAY</a></button>     
+                        </div>
+                        <div class="col-xl-2 mainNavBar row logout">
+                            <div class="col-xl-9 profile d-flex justify-content-center align-items-center">
+                                <a href="profilePage.php">PROFILE</a>
+                                <div class="devider"></div>
+                            </div>
+                            <div class="col-xl-3 logoutButton d-flex justify-content-end align-items-center">
+                                <a href="includes/logout.inc.php"><img src="Images/logout.png"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-1"></div>
+                        <div class="col-xl-2"></div>
     </div>';
             }
             else {

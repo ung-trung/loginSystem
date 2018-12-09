@@ -1,10 +1,9 @@
 ::-webkit-scrollbar {
     display: none;
-  }
-  
-  ::-webkit-scrollbar-button {
-    display: none;
-  }
+}  
+::-webkit-scrollbar-button {
+display: none;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -18,12 +17,16 @@ html, body {
     background: url('..//Images/mainBackground.png') no-repeat center center fixed; 
     background-size: cover; 
 }
-.secondBackground {
-    background-color: whitesmoke;  
-    width: 50%;
-    margin-left: 25%;
-    height: 100%;
-    top: 0;
+.snakeLogo {
+    height: 4vw;
+    width: auto;
+
+    border: solid black 5px;
+    border-radius: 15px;
+    position: absolute;
+
+    top: 1vh;
+    left: 63vw;
 }
 .playButton {
     width: 100%;
@@ -96,7 +99,7 @@ html, body {
     position: relative;
 }
 .navBarStructure {
-    margin-top: 4%;
+    margin-top: 10vh;
     height: 100px;
     /* opacity: 0.5; */
 }
@@ -113,6 +116,9 @@ html, body {
     font-family: "Courier New";
     font-weight: bolder;
     font-size: 2vw;
+}
+.mainNavBar.highscore:hover {
+    background-color: #e2e2e2;
 }
 .mainNavBar.highscore a {
     text-decoration: none;
@@ -181,6 +187,7 @@ footer {
     width: 65%;
     height: 80%;
     border-right: solid #808080 4px;
+    position: relative;
 }
 .popupWindow .replayButton {
     width: 60%;
@@ -200,6 +207,13 @@ footer {
     margin-top: 5%;
     font-size: 1vw;
     text-align: center;
+}
+.result .rank {
+    position: absolute;
+    left: 60%;
+    top: 55%;
+
+    font-size: 2.5vw;
 }
 .popupWindow .exhighScore {
     margin-top: 7%;

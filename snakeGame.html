@@ -20,7 +20,7 @@
 
     <!-- Main Window -->
     <div class="main d-flex justify-content-center align-items-center">
-        <div class="gameSpace">
+        <div class="gameSpace" id="gameSpace">
             <h3 class="gameScore"></h3>
             <canvas id="snakeGame" width="700" height="700"></canvas>
         </div>
@@ -29,14 +29,13 @@
         <div class="result">
             <h3>Game Over</h3>
             <h1 class="gameScore" id="finalScore"></h1>
-            <button class="replayButton">Replay</button>
-            <p>Please login to save your scores !!</p>
+            <h1 class="rank"></h1>
+            <button class="replayButton" onClick="replay()">Replay</button>
+            <p>Note: Please login to save your scores !!</p>
         </div>
         <div class="exhighScore">
             <p>Highscores</p>
-
             <div class="leaders"></div>
-
         </div>
     </div>
     

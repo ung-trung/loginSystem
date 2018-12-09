@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="link-div">
-                        <a href="signup.php">Sign up</a>
+                        <a href="signup.php" style="border-right: solid black 1px; padding-right: 7px;">Sign up</a>
                         <a href="forgotPwd.php">Forgot your password?</a> 
                     </div>
 
@@ -51,6 +51,3 @@
             </div>';
         ?>
     </main>
-<?php
-    require "footer.php";
-?>

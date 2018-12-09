@@ -1,3 +1,6 @@
+$(".snakeLogo").click(function() {
+    $(".popupWindow").toggle()
+});
 window.onload=function() {
     canv=document.getElementById("snakeGame");
     context=canv.getContext("2d");
@@ -211,8 +214,7 @@ function gameOver() {
     clearInterval(gameInterval);
 
     $(".popupWindow").show(1000);
-
-
+    $(".leaders").empty();
     //Update database:
     $.post("includes/setHighScoreService.php", {score: tail - 3});
 
@@ -235,6 +237,15 @@ function gameOver() {
             $(".leaders").append($("<h3></h3>").text(data[4]));
             $(".leaders").append($("<h4></h4>").text(data[5]));
         })
-
     })
+}
+function replay() {
+    tail = 3;
+    gameInterval = setInterval(snakeGame, 1000/10);
+    xp = yp = 10;
+    xa = Math.floor(Math.random()*tc);
+    ya = Math.floor(Math.random()*tc);
+    trail = [];
+    document.addEventListener("keydown", keyPush);
+    $(".popupWindow").hide();
 }
