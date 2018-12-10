@@ -5,6 +5,7 @@
         <?php
         if (isset($_SESSION['userName'])){
             readfile("snakeGame.html");
+            require "footer.php";
         }
         else {
             echo '<div class="container-fluid login-container-fluid">
