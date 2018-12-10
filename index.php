@@ -15,7 +15,7 @@
                     </h1>
                     <form action="includes/login.inc.php" method="POST" class="login-form text-center">
                     <div class="user-div">
-                        <input type="text" name="mailuid" placeholder="Username" maxlength="20" class="form-control">
+                        <input type="text" name="mailuid" placeholder="Username" class="form-control">
                     </div>
                     <div class="password-div">
                         <input type="password" name="pwd" placeholder="Password..." class="form-control">

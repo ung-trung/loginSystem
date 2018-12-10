@@ -54,32 +54,32 @@ function snakeGame() {
         yp = 0;
     }
     //Speed up:
-    if (trail.length >= 30)
+    if (trail.length >= 33)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/15);
     }
-    if (trail.length >= 50)
+    if (trail.length >= 53)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/20);
     }
-    if (trail.length >= 75)
+    if (trail.length >= 78)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/25);
     }
-    if (trail.length >= 100)
+    if (trail.length >= 103)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/30);
     }
-    if (trail.length >= 200)
+    if (trail.length >= 203)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/35);
     }
-    if (trail.length >= 350)
+    if (trail.length >= 353)
     {
         clearInterval(gameInterval);
         gameInterval = setInterval(snakeGame, 1000/40);

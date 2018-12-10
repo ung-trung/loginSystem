@@ -13,8 +13,8 @@
                 $mail->Subject = "Notification on password reset!";
                 $mail->WordWrap = 50;
                 $mail->isHTML(true);
-                $mail->Body = "Someone has request a password request on your account<br>Please ignore this email if you did not request this<br>Ortherwise, please click on the link below to reset your password <br> <a href='http://localhost:8080/loginSystem/includes/resetPwd.inc.php?mail=$email&token=$token'
-                    >http://localhost:8080/loginSystem/includes/resetPwd.inc.php?mail=$email&token=$token<a/>";
+                $mail->Body = "Someone has request a password request on your account<br>Please ignore this email if you did not request this<br>Ortherwise, please click on the link below to reset your password <br> <a href='http://localhost:8080/loginSystem/resetPwd.php?mail=$email&token=$token'
+                    >http://localhost:8080/loginSystem/resetPwd.php?mail=$email&token=$token<a/>";
                 $mail->isHTML(true);
 
                 if ($mail->send()) {
